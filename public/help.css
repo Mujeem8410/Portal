@@ -1,0 +1,242 @@
+body { 
+    margin: 0; 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('c.jpg'); /* same image as body */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(3.5px);
+    z-index: -1; /* keep it behind everything */
+}
+
+.animated-header {
+    margin-top: 0px;
+    text-align: center;
+    padding: 30px 20px 20px;
+    background: linear-gradient(135deg, #102E50, #1A3A6F);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    animation: fadeInDown 1s ease;
+}
+
+.moving-text {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.animated-header p {
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+header { 
+    position: relative;
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #102E50, #1A3A6F);
+    color: white;
+    overflow: hidden;
+   
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    margin: 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+header::before, header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2), transparent 70%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    animation: wave 6s infinite ease-in-out;
+    z-index: 0;
+}
+
+header::after {
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    animation: wave-reverse 6s infinite ease-in-out;
+}
+
+@keyframes wave {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-45%, -45%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes wave-reverse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-55%, -55%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #BE3D2A;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.navbar li a:hover {
+    border-bottom: 1px solid yellow;
+    border-radius: 5px;
+    color: #102E50;
+}
+
+/* Content Section */
+.content { 
+    position: relative;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, black, rgba(48, 46, 46, 0.5)); /* Gradient background */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    overflow: hidden; /* Ensures the animation stays within the div */
+    z-index: 1;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    animation: wave-animation 8s infinite ease-in-out;
+    z-index: -1;
+}
+
+.content::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 0);
+    animation: wave-animation-reverse 8s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(50px, 50px) scale(1.2);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes wave-animation-reverse {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-50px, -50px) scale(1.2);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.content h3 {
+    color: #BE3D2A;
+    margin-top: 20px;
+}
+
+.content p {
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #070808;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #BE3D2A, #1A3A6F);
+}
+

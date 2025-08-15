@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Complaint</title>
+    <link rel="stylesheet" href="complaint.css" />
+     <style>
+      .flash-msg {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4CAF50; /* Green */
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 9999;
+        transition: all 0.4s ease-in-out;
+      }
+      
+      .flash-msg.hidden {
+        display: none;
+      }
+      
+
+
+    </style>
+  </head>
+
+  <body>
+
+    <nav>
+      <ul class="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="status_tracking.html">Check Status</a></li>
+        <li><a href="help.html">Help & Support</a></li>
+        <li><a href="admin.html"id="adminLink">Admin Panel</a></li>
+      </ul>
+    </nav>
+
+    <header class="animated-header">
+      <h1 class="moving-text">Submit Your Complaint</h1>
+    </header>
+  <div id="flashMsg" class="flash-msg hidden"></div>
+    <div class="content">
+      <!-- Added enctype="multipart/form-data" for file uploads -->
+      <form
+        id="complaintForm"
+        enctype="multipart/form-data"
+        method="POST"
+        action="/complaints"
+      >
+        <label for="category">Select Complaint Category:</label>
+        <select id="category" name="category" required>
+          <option value="">--Select--</option>
+          <option value="Teacher Issues">Teacher Issues</option>
+          <option value="Discipline Issues">Discipline Issues</option>
+          <option value="Library Complaints">Library Complaints</option>
+          <option value="Infrastructure Issues">Infrastructure Issues</option>
+          <option value="Academic Issues">Academic Issues</option>
+          <option value="Hostel Complaints">Hostel Complaints</option>
+          <option value="General Grievances">General Grievances</option>
+        </select>
+
+        <!-- Teacher Issue Fields -->
+        <div id="teacherFields" class="extra-fields" style="display: none">
+          <label for="teacherName">Enter Teacher Name:</label>
+          <input type="text" id="teacherName" name="teacherName" />
+
+          <label for="teacherCourse">Select Your Course:</label>
+          <select id="teacherCourse" name="teacherCourse">
+            <option value="">--Select Course--</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="BCA">BCA</option>
+            <option value="MCA">MCA</option>
+            <option value="BBA">BBA</option>
+            <option value="MBA">MBA</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="B.Pharm">B.Pharm</option>
+            <option value="LLB">LLB</option>
+            <option value="BA LLB">BA LLB</option>
+            <option value="B.Ed">B.Ed</option>
+            <option value="M.Ed">M.Ed</option>
+          </select>
+
+          <label for="teacherSemester">Select Semester:</label>
+          <select id="teacherSemester" name="teacherSemester">
+            <option value="">--Select Semester--</option>
+            <option value="1st Semester">1st Semester</option>
+            <option value="2nd Semester">2nd Semester</option>
+            <option value="3rd Semester">3rd Semester</option>
+            <option value="4th Semester">4th Semester</option>
+            <option value="5th Semester">5th Semester</option>
+            <option value="6th Semester">6th Semester</option>
+            <option value="7th Semester">7th Semester</option>
+            <option value="8th Semester">8th Semester</option>
+          </select>
+
+          <label for="teacherIssueDesc">Describe the issue:</label>
+          <textarea id="teacherIssueDesc" name="teacherIssueDesc"></textarea>
+        </div>
+
+        <!-- Academic Issue Fields -->
+        <div id="academicFields" class="extra-fields" style="display: none">
+          <label for="academicCourse">Select Your Course:</label>
+          <select id="academicCourse" name="academicCourse">
+            <option value="">--Select Course--</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="BCA">BCA</option>
+            <option value="MCA">MCA</option>
+            <option value="BBA">BBA</option>
+            <option value="MBA">MBA</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="B.Pharm">B.Pharm</option>
+            <option value="LLB">LLB</option>
+            <option value="BA LLB">BA LLB</option>
+            <option value="B.Ed">B.Ed</option>
+            <option value="M.Ed">M.Ed</option>
+          </select>
+
+          <label for="academicSemester">Select Semester:</label>
+          <select id="academicSemester" name="academicSemester">
+            <option value="">--Select Semester--</option>
+            <option value="1st Semester">1st Semester</option>
+            <option value="2nd Semester">2nd Semester</option>
+            <option value="3rd Semester">3rd Semester</option>
+            <option value="4th Semester">4th Semester</option>
+            <option value="5th Semester">5th Semester</option>
+            <option value="6th Semester">6th Semester</option>
+            <option value="7th Semester">7th Semester</option>
+            <option value="8th Semester">8th Semester</option>
+          </select>
+
+          <label for="academicDesc">Describe the issue:</label>
+          <textarea id="academicDesc" name="academicDesc"></textarea>
+        </div>
+
+        <!-- Other Complaints Textarea -->
+        <div id="generalIssueDesc" class="extra-fields" style="display: none">
+          <label for="otherDesc">Describe the issue:</label>
+          <textarea id="otherDesc" name="otherDesc"></textarea>
+        </div>
+
+        <label for="email">Your Email ID:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="proof"
+          >Upload Proof (Document, Screenshot, or Photo):</label
+        >
+        <input
+          type="file"
+          id="proof"
+          name="proof"
+          accept=".jpg, .jpeg, .png, .pdf, .doc, .docx, .xls, .xlsx"
+          required
+        />
+
+        <button type="submit">Submit Complaint</button>
+        
+        
+      
+
+        <p class="notice">
+          🕐 Your complaint will be resolved within 7 days. If not resolved,
+          please contact the admin.
+        </p>
+      </form>
+    </div>
+
+    <footer>&copy; 2025 SAMADHAN PORTAL | A voice without FEAR!</footer>
+
+    <script>
+     function showFlashMessage(message) {
+  const flash = document.getElementById("flashMsg");
+  flash.textContent = message;
+  flash.classList.remove("hidden");
+
+  setTimeout(() => {
+    flash.classList.add("hidden");
+  }, 3000); // 3 seconds
+}
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("category").addEventListener("change", function () {
+          const category = this.value;
+          document.getElementById("teacherFields").style.display = "none";
+          document.getElementById("academicFields").style.display = "none";
+          document.getElementById("generalIssueDesc").style.display = "none";
+    
+          if (category === "Teacher Issues") {
+            document.getElementById("teacherFields").style.display = "block";
+          } else if (category === "Academic Issues") {
+            document.getElementById("academicFields").style.display = "block";
+          } else if (category && category !== "") {
+            document.getElementById("generalIssueDesc").style.display = "block";
+          }
+        });
+    
+        document.getElementById("complaintForm").addEventListener("submit", async function (e) {
+          e.preventDefault();
+          console.log("Form submitted"); // Debug
+    
+          const form = e.target;
+          const formData = new FormData(form);
+    
+          try {
+            const response = await fetch("http://localhost:5000/complaints", {
+              method: "POST",
+              body: formData,
+            });
+                       
+            const responseText = await response.text();
+    
+            if (response.ok) {
+              showFlashMessage("Your complaint has been submitted. A tracking code has been sent to your email.")
+              form.reset();
+              document.querySelectorAll(".extra-fields").forEach((el) => {
+                el.style.display = "none";
+              });
+            } else {
+              console.error("❌ Server responded with error:", responseText);
+              alert("❌ Failed to submit complaint:\n" + responseText);
+            }
+          } catch (err) {
+          
+            alert("✅ Complaint submitted successfully!\n" + responseText);
+          }
+        });
+      });
+    </script>
+    <script src="checkRole.js"></script>
+    
+   
+    
+  </body>
+</html>

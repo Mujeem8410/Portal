@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMADHAN PORTAL - Track Complaint Status</title>
+    <link rel="stylesheet" href="statusCheck.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="complaint_form.html">File a Complaint</a></li>
+            <!-- <li><a href="status_tracking.html">Check Status</a></li> -->
+            <li><a href="help.html">Help & Support</a></li>
+            <li><a href="admin.html"id="adminLink">Admin Panel</a></li>
+            <!-- <li><a href="chatbot.html">AI Chatbot</a></li> -->
+        </ul>
+    </nav>
+
+    <header class="animated-header">
+        <h1 class="moving-text">Track Complaint Status</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Enter Your Complaint ID</h2>
+        <form id="complaintForm" action="/cmp/status" method="GET">
+            <label for="complaint-id">Complaint ID</label>
+            <input type="text" id="complaint_id" name="complaint_id" placeholder="Enter your complaint ID" required>
+            <button type="submit">Check Status</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SAMADHAN PORTAL. A voice without FEAR!</p>
+    </footer>
+    <script src="checkRole.js"></script>
+
+</body>
+
+</html>

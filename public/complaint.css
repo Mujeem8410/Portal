@@ -1,0 +1,257 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('c.jpg'); /* same image as body */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(3.5px);
+    z-index: -1; /* keep it behind everything */
+}
+
+/* Navbar */
+nav {
+    background-color: #BE3D2A;
+    padding: 12px 0;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar li a:hover {
+    border-bottom: 1px solid yellow;
+    border-radius: 5px;
+    color: #102E50;
+}
+
+/* Header */
+.animated-header {
+    margin-top: 0px;
+    text-align: center;
+    padding: 30px 20px 20px;
+    background: linear-gradient(135deg, #102E50, #1A3A6F);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    animation: fadeInDown 1s ease;
+}
+
+.moving-text {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.animated-header p {
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+header {
+    background: #102E50;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+/* Form container */
+.content {
+    position: relative;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, black, rgb(48, 46, 46, 0.5));
+    color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    /* Ensures the animation stays within the div */
+    z-index: 1;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    animation: wave-animation 8s infinite ease-in-out;
+    z-index: -1;
+}
+
+.content::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 0);
+    animation: wave-animation-reverse 8s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(50px, 50px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes wave-animation-reverse {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-50px, -50px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Form elements */
+form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 500;
+    color: white;
+
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea,
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #102E50;
+    transition: border-color 0.3s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #d3cdcd;
+}
+
+form select {
+    transition: background-color 1s;
+}
+
+form select:focus {
+    background-color: #090909;
+    color: white;
+}
+
+
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Buttons */
+button[type="submit"] {
+    margin-top: 20px;
+    background-color: #102E50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #BE3D2A;
+}
+
+/* Info Text */
+.notice {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #e2d7d7;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 0px;
+    padding: 20px;
+    background-color: #222;
+    color: #f6f3f3;
+    font-size: 14px;
+    border-top: 1px solid #d4e0f2;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .content {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

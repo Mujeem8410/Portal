@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SAMADHAN PORTAL - Home</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo-container">
+        <img src="logo.png" alt="Samadhan Portal Logo" class="logo" />
+      </div>
+      <ul class="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="complaint_form.html">File a Complaint</a></li>
+        <li><a href="cr_opp.html">Career Opportunities</a></li>
+        <li><a href="status_tracking.html">Check Status</a></li>
+        <li><a href="help.html">Help & Support</a></li>
+        <li><a href="admin.html" id="adminLink" class="hidden">Admin Panel</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <header class="animated-header">
+      <h1 class="moving-text">SAMADHAN PORTAL</h1>
+      <p>
+        Student Assistance Mechanism for Addressing Disputes, Hurdles, and
+        Academic Needs
+      </p>
+    </header>
+
+    <!-- ✅ Added div with third-look class -->
+    <button
+      style="
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 20px auto;
+        display: block;
+      "
+    >
+      <a href="signup.html" style="text-decoration: none; color: inherit"
+        >TAKE ME TO SIGNUP PAGE</a
+      >
+    </button>
+    <div class="third-look">
+      <div class="content">
+        <h2>Welcome to SAMADHAN PORTAL</h2>
+        <p>
+          The SAMADHAN PORTAL allows students to anonymously report any issues
+          they face at the orgsnization You can file complaints related to
+          academic issues, discipline violations, hostel concerns, library
+          issues, and more.
+        </p>
+        <p>
+          Upload proof such as images, videos, or documents to validate your
+          complaint. Our goal is to ensure a fair and safe learning environment
+          for all students.
+        </p>
+      </div>
+    </div>
+
+    <div class="rules-section">
+      <h2>University Rules and Regulations</h2>
+
+      <details class="rule-box">
+        <summary>
+          <bold>Library Rules</bold>
+        </summary>
+        <ul>
+          <li>Maintain silence inside the library.</li>
+          <li>Return books on time to avoid fines.</li>
+          <li>No eating or drinking allowed.</li>
+          <li>Use student ID to borrow books.</li>
+        </ul>
+      </details>
+
+      <details class="rule-box">
+        <summary>
+          <bold>Hostel Rules</bold>
+        </summary>
+        <ul>
+          <li>No loud music or disturbances after 10 PM.</li>
+          <li>Maintain hygiene and cleanliness.</li>
+          <li>Visitors must be registered.</li>
+          <li>Follow hostel in-time strictly.</li>
+        </ul>
+      </details>
+
+      <details class="rule-box">
+        <summary><b>Academic Rules</b></summary>
+        <ul>
+          <li>75% attendance mandatory.</li>
+          <li>Plagiarism in assignments is not allowed.</li>
+          <li>Respect faculty instructions and deadlines.</li>
+        </ul>
+      </details>
+
+      <details class="rule-box">
+        <summary><b>Discipline Rules</b></summary>
+        <ul>
+          <li>Respect peers and faculty.</li>
+          <li>No ragging or harassment tolerated.</li>
+          <li>Follow campus code of conduct.</li>
+        </ul>
+      </details>
+
+      <details class="rule-box">
+        <summary><b>Infrastructure Usage Rules</b></summary>
+        <ul>
+          <li>Do not damage lab equipment.</li>
+          <li>Use sports facilities responsibly.</li>
+          <li>Switch off lights/fans when not in use.</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="team-section">
+      <div class="team-bg"></div>
+      <div class="team-content">
+        <h2>Meet the SAMADHAN Team</h2>
+        <p class="quote">
+          "Working behind the scene to make your voice heard."
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 SAMADHAN PORTAL | A voice without FEAR!</p>
+    </footer>
+    <script src="checkRole.js"></script>
+  </body>
+</html>

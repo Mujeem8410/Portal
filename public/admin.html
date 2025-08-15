@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - SAMADHAN PORTAL</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+
+  <body>
+    <nav>
+      <ul class="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="complaint_form.html">Submit Complaint</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="admin.html" class="active">Admin Panel</a></li>
+      </ul>
+    </nav>
+
+    <div class="wrapper">
+      <header class="animated-header">
+        <div class="moving-text">Admin Panel</div>
+        <p>Manage complaints and monitor their statuses</p>
+      </header>
+
+      <section class="filter-section">
+        <div class="filter-controls">
+          <label for="statusFilter">Filter by Status:</label>
+          <select id="statusFilter">
+            <option value="all">All</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Pending">Pending</option>
+            <option value="Declined">Declined</option>
+          </select>
+
+          <label for="categoryFilter">Filter by Category:</label>
+          <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="Teacher Issues">Teacher Issues</option>
+            <option value="Discipline Issues">Discipline Issues</option>
+            <option value="Library Complaints">Library Complaints</option>
+            <option value="Infrastructure Issues">Infrastructure Issues</option>
+            <option value="Academic Issues">Academic Issues</option>
+            <option value="Hostel Complaints">Hostel Complaints</option>
+            <option value="General Grievances">General Grievances</option>
+          </select>
+        </div>
+
+        <div class="summary" id="summary"></div>
+      </section>
+
+      <section class="table-section">
+        <table id="complaintTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Description</th>
+              <th>Date Received</th>
+              <th>Status</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="complaintBody"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 SAMADHAN PORTAL | A voice without FEAR!</p>
+    </footer>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact & Feedback | Samadhan Portal</title>
+    <link rel="stylesheet" href="contact.css" />
+    <style>
+      .flash-msg {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4CAF50; /* Green */
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 9999;
+        transition: all 0.4s ease-in-out;
+      }
+      
+      .flash-msg.hidden {
+        display: none;
+      }
+      
+
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="complaint_form.html">Submit Complaint</a></li>
+        <li><a href="status_tracking.html">Check Status</a></li>
+        <li><a href="admin.html"id="adminLink">Admin Panel</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1>Contact Us & Help Center</h1>
+    </header>
+
+    <div class="container">
+      <section class="card animate">
+        <h2>Having trouble using the Samadhan Portal?</h2>
+        <label for="issueType">Select the problem you are facing:</label>
+        <select id="issueType" required>
+          <option value="">--Select an issue--</option>
+          <option value="Form Not Submitting">Form Not Submitting</option>
+          <option value="Unable to Upload Proof">Unable to Upload Proof</option>
+          <option value="Complaint Status Not Updating">
+            Complaint Status Not Updating
+          </option>
+          <option value="Didn't Receive Confirmation Email">
+            Didn't Receive Confirmation Email
+          </option>
+          <option value="Other">Other (Not Listed)</option>
+        </select>
+
+        <div id="issueDetails" class="issue-details hidden">
+          <label for="userEmail">Your Email:</label>
+          <input
+            type="email"
+            id="userEmail"
+            placeholder="yourname@student.invertis.ac.in"
+            required
+          />
+
+          <label for="issueDescription">Briefly describe your problem:</label>
+          <textarea
+            id="issueDescription"
+            placeholder="Explain the issue you are facing on this portal..."
+            required
+          ></textarea>
+
+          <button onclick="submitIssue()">Submit Issue</button>
+          <p id="issueSubmittedMsg" class="success hidden">
+            ✅ Your issue has been submitted to the Admin. You will be contacted
+            shortly.
+          </p>
+        </div>
+
+        <div class="admin-contact">
+          <p>
+            📧 You may also contact our Admin directly via email:
+            <a href="mailto:muzeemsaifi88@gmail.com"
+              >muzeemsaifi88@gmail.com</a
+            >
+          </p>
+        </div>
+
+        <hr style="margin: 40px 0" />
+      </section>
+
+      <section class="card animate">
+        <h2>📢 We Value Your Feedback!</h2>
+        <p>Help us improve by sharing your experience using this portal.</p>
+
+        <form id="feedbackForm" method="POST">
+          <label for="feedbackEmail">Your Email (optional):</label>
+          <input
+            type="email"
+            id="feedbackEmail"
+            placeholder="you@example.com" name="email"
+          />
+
+          <p>OR sign in with your Google account:</p>
+          <button
+            type="button"
+            class="google-button"
+            onclick="alert('Google Sign-In coming soon')"
+          >
+            Sign in with Google
+          </button>
+
+          <label>Rate your experience:</label>
+          <div class="star-rating">
+            <input type="radio" name="rating"  id="5-stars" value="5" /><label
+              for="5-stars"
+              >&#9733;</label
+            >
+            <input type="radio" name="rating" id="4-stars" value="4" /><label
+              for="4-stars"
+              >&#9733;</label
+            >
+            <input type="radio" name="rating" id="3-stars" value="3" /><label
+              for="3-stars"
+              >&#9733;</label
+            >
+            <input type="radio" name="rating" id="2-stars" value="2" /><label
+              for="2-stars"
+              >&#9733;</label
+            >
+            <input type="radio" name="rating" id="1-star" value="1" /><label
+              for="1-star"
+              >&#9733;</label
+            >
+          </div>
+
+          <label for="feedbackText">Any Suggestions? </label>
+          <textarea
+            id="feedbackText"
+            placeholder="We'd love to hear from you..."
+            required name="feedbackText"
+          ></textarea>
+
+          <button type="submit">Submit Feedback</button>
+          <p id="thanksMessage" class="success hidden">
+            ✅ Thank you for your feedback!
+          </p>
+        </form>
+        <div class=".container"></div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Samadhan Portal | A voice without FEAR!</p>
+    </footer>
+
+    <script src="contact.js"></script>
+    <script src="checkRole.js"></script>
+    <div id="flashMsg" class="flash-msg hidden"></div>
+
+  </body>
+</html>
